@@ -1,0 +1,14 @@
+{
+    "files": [
+        "src/app.tsx"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "jsx": "react",
+        "lib": ["es6", "dom"]
+    },
+    "exclude": [
+        "node_modules/**/*"
+    ]
+}
