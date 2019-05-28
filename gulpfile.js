@@ -2,9 +2,9 @@
 const browserify = require('browserify');
 const clean = require("gulp-clean")
 const gulp = require("gulp");
+const jest = require('gulp-jest').default;
 const path = require("path");
 const source = require('vinyl-source-stream');
-const tsCompile = require('typescript');
 const ts = require('gulp-typescript');
 
 const tsProject = ts.createProject("tsconfig.json");
@@ -26,14 +26,14 @@ function copy_html() {
 }
 
 function bundle() {
-    return browserify(path.join(tsOutputDir, "app.js"))
+    return browserify(path.join(tsOutputDir, "src/app.js"))
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest(distDir));
 }
 
 function cleanBuildFiles() {
-    return gulp.src(buildDir, {read: false})
+    return gulp.src(buildDir, {read: false, allowEmpty: true})
         .pipe(clean());
 }
 

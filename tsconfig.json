@@ -1,14 +1,20 @@
 {
     "files": [
-        "src/app.tsx"
+        "src/app.tsx",
+        "src/models/Actor.ts",
+        "src/models/Movie.ts",
+        "src/models/TMDbConnector.ts",
+        "src/models/TMDbInterfaces.ts"
     ],
     "compilerOptions": {
         "noImplicitAny": true,
         "target": "es5",
         "jsx": "react",
-        "lib": ["es6", "dom"]
+        "lib": ["es6", "dom"],
+        "rootDir": "."
     },
     "exclude": [
-        "node_modules/**/*"
+        "node_modules/**/*",
+        "build/**/*"
     ]
 }
