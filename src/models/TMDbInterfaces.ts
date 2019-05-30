@@ -12,7 +12,7 @@ export interface TMDbMovie {
     vote_average: number;
     title: string;
     popularity: number;
-    poster_path: string;
+    poster_path?: string;
     original_language: string;
     original_title: string;
     genre_ids: number[];

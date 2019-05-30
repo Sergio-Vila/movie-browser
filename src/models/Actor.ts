@@ -1,7 +1,7 @@
 
 import { TMDbCast } from "./TMDbInterfaces"
 
-export class Actor {
+export default class Actor {
     id: number;
     name: string;
     picture?: URL;
@@ -14,7 +14,7 @@ export function actorFromTMDbCast(tmdbCast: TMDbCast, imagesEndpoint: string): A
     };
 
     if (tmdbCast.profile_path) {
-        actor.picture = new URL(tmdbCast.profile_path, imagesEndpoint);
+        actor.picture = new URL(imagesEndpoint + tmdbCast.profile_path);
     }
 
     return actor;

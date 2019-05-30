@@ -1,20 +1,25 @@
 
 import { TMDbMovie } from "./TMDbInterfaces"
 
-export interface Movie {
+export default interface Movie {
     id: number;
     title: string;
-    poster: URL;
+    poster?: URL;
     overview: string;
     releaseDate: Date;
 }
 
 export function movieFromTMDb(tmdbMovie: TMDbMovie, imagesEndpoint: string): Movie {
-    return {
+    const movie: Movie = {
         id: tmdbMovie.id,
         title: tmdbMovie.original_title,
         overview: tmdbMovie.overview,
-        releaseDate: new Date(tmdbMovie.release_date),
-        poster: new URL(tmdbMovie.poster_path, imagesEndpoint)
+        releaseDate: new Date(tmdbMovie.release_date)
     };
+
+    if (tmdbMovie.poster_path) {
+        movie.poster = new URL(imagesEndpoint + tmdbMovie.poster_path);
+    }
+
+    return movie;
 }

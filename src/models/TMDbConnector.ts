@@ -1,12 +1,15 @@
 
-import { Actor, actorFromTMDbCast } from "./Actor"
-import { Movie, movieFromTMDb } from "./Movie";
+import Actor, { actorFromTMDbCast } from "./Actor"
+import Movie, { movieFromTMDb } from "./Movie";
 import { TMDbSearchResult, TMDbCreditsResult } from "./TMDbInterfaces"
 
 import * as queryString from "query-string"
 
 function buildUrl(base: string, resource: string, query: {[key: string]: string}) {
-    return new URL(resource, base) + "?" + queryString.stringify(query);
+    if (base.charAt(base.length - 1) === "/") {
+        return base.substring(0, base.length - 1) + resource + "?" + queryString.stringify(query, { sort: false });
+    }
+    return base + resource + "?" + queryString.stringify(query);
 }
 
 export interface SearchResult {
@@ -20,7 +23,7 @@ export interface CastingResult {
     results: Actor[];
 }
 
-export class TMDbConnector {
+export default class TMDbConnector {
 
     readonly apiKey: string;
     readonly endpoint: string;

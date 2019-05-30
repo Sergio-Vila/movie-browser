@@ -2,7 +2,7 @@
 const browserify = require('browserify');
 const clean = require("gulp-clean")
 const gulp = require("gulp");
-const jest = require('gulp-jest').default;
+const nodemon = require("gulp-nodemon");
 const path = require("path");
 const source = require('vinyl-source-stream');
 const ts = require('gulp-typescript');
@@ -37,8 +37,15 @@ function cleanBuildFiles() {
         .pipe(clean());
 }
 
+function serve() {
+    return nodemon({
+        script: "build/tsOutput/src/server.js",
+        watch: ["build/tsOutput/src/server.js", "build/dist/**/*"]
+    });
+}
+
 exports.bundle = bundle;
 exports.copy_html = copy_html;
 exports.ts_compile = ts_compile;
 
-exports.default = gulp.series(cleanBuildFiles, copy_html, ts_compile, bundle);
+exports.default = gulp.series(cleanBuildFiles, copy_html, ts_compile, bundle, serve);

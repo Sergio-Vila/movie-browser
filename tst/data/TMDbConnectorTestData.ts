@@ -3,7 +3,7 @@ import {Movie} from "../../src/models/Movie"
 import {TMDbSearchResult, TMDbCreditsResult} from "../../src/models/TMDbInterfaces"
 import {SearchResult, CastingResult} from "../../src/models/TMDbConnector"
 
-export const validUrl = "https://www.example.com";
+export const validUrl = "https://www.example.com/adsf";
 export const validImagesEndpoint = "https://www.example.com/images";
 export const apiKey = "apiKey";
 export const searchKeywords = "keyword1 keyword2";
@@ -82,13 +82,13 @@ export const exampleSearchResult: SearchResult = {
     results: [{
         id: 120,
         title: "The Lord of the Rings: The Fellowship of the Ring",
-        poster: new URL("/56zTpe2xvaA4alU51sRWPoKPYZy.jpg", validImagesEndpoint),
+        poster: new URL(validImagesEndpoint + "/56zTpe2xvaA4alU51sRWPoKPYZy.jpg"),
         overview: "Young hobbit Frodo Bag...",
         releaseDate: new Date("2001-12-18")
     }, {
         id: 122,
         title: "The Lord of the Rings: The Return of the King",
-        poster: new URL("/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg", validImagesEndpoint),
+        poster: new URL(validImagesEndpoint + "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"),
         overview: "Aragorn is reveale...",
         releaseDate: new Date("2003-12-01")
     }]
@@ -152,7 +152,7 @@ export const exampleCastingResult: CastingResult = {
     results: [{
         id: 1719324,
         name: "Jason Byrne",
-        picture: new URL("/img1.png", validImagesEndpoint)
+        picture: new URL(validImagesEndpoint + "/img1.png")
     }, {
         id: 1719325,
         name: "Michael Welch"

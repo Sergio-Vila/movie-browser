@@ -1,8 +1,8 @@
 /// <reference types="jest" />
 
 import {GlobalWithFetchMock} from "jest-fetch-mock";
-import {TMDbConnector} from "../../../src/models/TMDbConnector";
-import * as data from "../../data/TMDbConnectorExampleData";
+import TMDbConnector from "../../../src/models/TMDbConnector";
+import * as data from "../../data/TMDbConnectorTestData";
 
 import * as queryString from "query-string";
 

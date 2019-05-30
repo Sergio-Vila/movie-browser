@@ -1,11 +1,4 @@
 {
-    "files": [
-        "src/app.tsx",
-        "src/models/Actor.ts",
-        "src/models/Movie.ts",
-        "src/models/TMDbConnector.ts",
-        "src/models/TMDbInterfaces.ts"
-    ],
     "compilerOptions": {
         "noImplicitAny": true,
         "target": "es5",
@@ -15,6 +8,7 @@
     },
     "exclude": [
         "node_modules/**/*",
-        "build/**/*"
+        "build/**/*",
+        "tst/**/*"
     ]
 }
